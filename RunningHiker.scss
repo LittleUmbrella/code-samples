@@ -1,0 +1,75 @@
+.hiker {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 1;
+  z-index: 10000;
+  display: flex;
+}
+
+figure {
+  position: absolute;
+  margin: 0;
+}
+
+.hiker-body {
+  position: absolute;
+  z-index: 1000;
+  transition-property: none;
+  animation: none;
+  width: 50px;
+  left: 5px;
+  top: 9px;
+
+  svg {
+    use {
+      color: limegreen;
+      fill: limegreen;
+    }
+  }
+
+  &.running {
+    transition-property: all;
+    animation-iteration-count: infinite;
+    animation-delay: 0s;
+    animation-timing-function: step-start;
+  }
+
+  &.stride-slow {
+    animation-duration: .75s;
+  }
+
+  &.stride-fast {
+    animation-duration: .25s;
+  }
+
+  &.stride-1 {
+    animation-name: stride-1;
+
+    &.hidden {
+      visibility: hidden;
+    }
+  }
+
+  &.stride-2 {
+    animation-name: stride-2;
+  }
+
+  svg {
+    position: absolute;
+  }
+}
+
+@keyframes stride-1 {
+  0% {visibility: hidden;}
+  50% {visibility: visible;}
+  100% {visibility: hidden;}
+}
+
+@keyframes stride-2 {
+  0% {visibility: visible;}
+  50% {visibility: hidden;}
+  100% {visibility: visible;}
+}
